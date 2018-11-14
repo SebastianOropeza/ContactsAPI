@@ -1,0 +1,11 @@
+C:\Users\Sebastian.Sebas\source\repos\ContactsAPI\ContactsAPI\bin\Debug\netcoreapp2.0\ContactsAPI.deps.json
+C:\Users\Sebastian.Sebas\source\repos\ContactsAPI\ContactsAPI\bin\Debug\netcoreapp2.0\ContactsAPI.runtimeconfig.json
+C:\Users\Sebastian.Sebas\source\repos\ContactsAPI\ContactsAPI\bin\Debug\netcoreapp2.0\ContactsAPI.runtimeconfig.dev.json
+C:\Users\Sebastian.Sebas\source\repos\ContactsAPI\ContactsAPI\bin\Debug\netcoreapp2.0\ContactsAPI.dll
+C:\Users\Sebastian.Sebas\source\repos\ContactsAPI\ContactsAPI\bin\Debug\netcoreapp2.0\ContactsAPI.pdb
+C:\Users\Sebastian.Sebas\source\repos\ContactsAPI\ContactsAPI\obj\Debug\netcoreapp2.0\ContactsAPI.csprojAssemblyReference.cache
+C:\Users\Sebastian.Sebas\source\repos\ContactsAPI\ContactsAPI\obj\Debug\netcoreapp2.0\ContactsAPI.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian.Sebas\source\repos\ContactsAPI\ContactsAPI\obj\Debug\netcoreapp2.0\ContactsAPI.AssemblyInfoInputs.cache
+C:\Users\Sebastian.Sebas\source\repos\ContactsAPI\ContactsAPI\obj\Debug\netcoreapp2.0\ContactsAPI.AssemblyInfo.cs
+C:\Users\Sebastian.Sebas\source\repos\ContactsAPI\ContactsAPI\obj\Debug\netcoreapp2.0\ContactsAPI.dll
+C:\Users\Sebastian.Sebas\source\repos\ContactsAPI\ContactsAPI\obj\Debug\netcoreapp2.0\ContactsAPI.pdb
