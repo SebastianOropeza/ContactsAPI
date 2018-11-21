@@ -13,31 +13,36 @@ namespace ContactsAPI.Controllers
     [Route("api/[controller]")]
     public class ContactsController : Controller
     {
-        private IGetAllContactsCommand _getAllContactsCommand;
-        private IGetContactByIdCommand _getContactByIdCommand;
-        private ICreateContactCommand _createContactCommand;
-        private IDeleteContactCommand _deleteContactCommand;
+        private readonly IGetAllContactsCommand _getAllContactsCommand;
+        private readonly IGetContactByIdCommand _getContactByIdCommand;
+        private readonly ICreateContactCommand _createContactCommand;
+        private readonly IDeleteContactCommand _deleteContactCommand;
+        private readonly IUpdateContactCommand _updateContactCommand;
 
         public ContactsController(
             IGetAllContactsCommand getAllContactsCommand, 
             IGetContactByIdCommand getContactByIdCommand,
             ICreateContactCommand createContactCommand,
-            IDeleteContactCommand deleteContactCommand
+            IDeleteContactCommand deleteContactCommand,
+            IUpdateContactCommand updateContactCommand
             )
         {
             _getAllContactsCommand = getAllContactsCommand;
             _getContactByIdCommand = getContactByIdCommand;
             _createContactCommand = createContactCommand;
             _deleteContactCommand = deleteContactCommand;
+            _updateContactCommand = updateContactCommand;
         }
 
         // GET /api/<controller>
         [HttpGet]
-        public IActionResult GetAllContacts() => _getAllContactsCommand.Execute();
+        public IActionResult GetAllContacts() => 
+            _getAllContactsCommand.Execute();
 
         // GET /api/<controller>/id
         [HttpGet("{id}")]
-        public IActionResult GetContactById([FromRoute]int id) => _getContactByIdCommand.Execute(id);
+        public IActionResult GetContactById([FromRoute]int id) => 
+            _getContactByIdCommand.Execute(id);
 
         // POST /api/<controller>/
         [HttpPost]
@@ -46,6 +51,11 @@ namespace ContactsAPI.Controllers
 
         // DELETE /api/<controller>/5
         [HttpDelete("{id}")]
-        public IActionResult DeleteContact([FromRoute]int id) => _deleteContactCommand.Execute(id);
+        public IActionResult DeleteContact([FromRoute]int id) => 
+            _deleteContactCommand.Execute(id);
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> UpdateContact([FromRoute]int id, [FromBody]Contact contact) => 
+            await _updateContactCommand.Execute(id, contact);
     }
 }

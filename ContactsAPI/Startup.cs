@@ -40,6 +40,7 @@ namespace ContactsAPI
             services.AddSingleton<IGetContactByIdCommand, GetContactByIdCommand>();
             services.AddSingleton<ICreateContactCommand, CreateContactCommand>();
             services.AddSingleton<IDeleteContactCommand, DeleteContactCommand>();
+            services.AddSingleton<IUpdateContactCommand, UpdateContactCommand>();
 
             services.AddMvc();
             services.AddAutoMapper(x => x.AddProfile(new ContactMapper()));

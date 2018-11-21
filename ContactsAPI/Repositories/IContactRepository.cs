@@ -10,5 +10,6 @@ namespace ContactsAPI.Repositories
         Task<int> AddContact(Contact newContact);
         Contact Find(int id);
         void DeleteContact(Contact contact);
+        Task<Contact> UpdateContact(Contact contactToUpdate);
     }
 }
