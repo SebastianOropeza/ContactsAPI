@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using ContactsAPI.Commands.ContactsCommands;
 using ContactsAPI.Commands.ContactsCommands.Interfaces;
 using ContactsAPI.DbContexts;
+using ContactsAPI.Mapper;
 using ContactsAPI.Models;
 using ContactsAPI.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -35,8 +37,11 @@ namespace ContactsAPI
 
             services.AddSingleton<IContactRepository, ContactRepository>();
             services.AddSingleton<IGetAllContactsCommand, GetAllContactsCommand>();
+            services.AddSingleton<IGetContactByIdCommand, GetContactByIdCommand>();
+            services.AddSingleton<ICreateContactCommand, CreateContactCommand>();
 
             services.AddMvc();
+            services.AddAutoMapper(x => x.AddProfile(new ContactMapper()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

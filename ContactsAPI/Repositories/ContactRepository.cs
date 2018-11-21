@@ -21,5 +21,18 @@ namespace ContactsAPI.Repositories
         {
             return context.Contacts;
         }
+
+        public Contact Find(int id)
+        {
+            return context.Contacts.Single(p => p.ID == id );
+        }
+
+        public async Task<int> AddContact(Contact newContact)
+        {
+            context.Contacts.AddRange(newContact);
+            await context.SaveChangesAsync();
+
+            return newContact.ID;
+        }
     }
 }

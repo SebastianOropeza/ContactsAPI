@@ -8,26 +8,24 @@ using System.Threading.Tasks;
 
 namespace ContactsAPI.Commands.ContactsCommands
 {
-    public class GetAllContactsCommand : IGetAllContactsCommand
+    public class GetContactByIdCommand : IGetContactByIdCommand
     {
         private IContactRepository _contactRepository;
 
-        public GetAllContactsCommand(
-            IContactRepository contactRepository)
+        public GetContactByIdCommand(IContactRepository contactRepository)
         {
             _contactRepository = contactRepository;
         }
 
-        public IActionResult Execute()
+        public IActionResult Execute(int id)
         {
-            var contacts = _contactRepository.GetContacts().OrderBy(p => p.ID);
+            var contact = _contactRepository.GetContacts().SingleOrDefault(p => p.ID == id);
 
-            if (contacts == null)
+            if (contact == null)
             {
                 return new NotFoundResult();
             }
-
-            return new OkObjectResult(contacts);
+            return new OkObjectResult(contact);
         }
     }
 }
