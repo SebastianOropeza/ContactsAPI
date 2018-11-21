@@ -16,15 +16,19 @@ namespace ContactsAPI.Controllers
         private IGetAllContactsCommand _getAllContactsCommand;
         private IGetContactByIdCommand _getContactByIdCommand;
         private ICreateContactCommand _createContactCommand;
+        private IDeleteContactCommand _deleteContactCommand;
 
         public ContactsController(
             IGetAllContactsCommand getAllContactsCommand, 
             IGetContactByIdCommand getContactByIdCommand,
-            ICreateContactCommand createContactCommand)
+            ICreateContactCommand createContactCommand,
+            IDeleteContactCommand deleteContactCommand
+            )
         {
             _getAllContactsCommand = getAllContactsCommand;
             _getContactByIdCommand = getContactByIdCommand;
             _createContactCommand = createContactCommand;
+            _deleteContactCommand = deleteContactCommand;
         }
 
         // GET /api/<controller>
@@ -35,8 +39,13 @@ namespace ContactsAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetContactById([FromRoute]int id) => _getContactByIdCommand.Execute(id);
 
+        // POST /api/<controller>/
         [HttpPost]
         public async Task<IActionResult> CreateContact([FromBody]SaveContact newContact) => 
             await _createContactCommand.ExecuteAsync(newContact);
+
+        // DELETE /api/<controller>/5
+        [HttpDelete("{id}")]
+        public IActionResult DeleteContact([FromRoute]int id) => _deleteContactCommand.Execute(id);
     }
 }

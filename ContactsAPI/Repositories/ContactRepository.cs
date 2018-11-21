@@ -34,5 +34,11 @@ namespace ContactsAPI.Repositories
 
             return newContact.ID;
         }
+
+        public void DeleteContact(Contact contact)
+        {
+            context.Remove(contact);
+            context.SaveChanges();
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace ContactsAPI.Repositories
         IEnumerable<Contact> GetContacts();
         Task<int> AddContact(Contact newContact);
         Contact Find(int id);
+        void DeleteContact(Contact contact);
     }
 }
